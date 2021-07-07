@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    background-image: url("img/aincrad.jpg");
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg.end {
+    background-image: url("img/end.jpg");
+}
+
+.flex-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.flex-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    text-shadow: 0 0 12px #32c5fa;
+    flex-direction: column;
+}
+
+.warning {
+    text-shadow: 0 0 12px #d61818;
+}
+
+.title {
+    font-family: 'Shippori Mincho', serif;
+}
