@@ -1,36 +1,3 @@
-const sale_begin = 1667142000000;
-const server_open_time = 1667707200000;
-const server_trap_time = 1667723400000;
-const fisrt_dead = 1667734200000;
-const coper_dead = 1667736000000;
-const tztt_d_f = 1669820400000;
-const seventyfive_floor_fight = 1730952000000;
-const seventyfive_floor_fight_end = 1730955600000;
-const sao_clear = 1730958900000;
-const sao_disconnect = 1730959200000;
-
-const first_boss_fight = 1670125200000;
-const second_floor_open = 1670130000000; //小說沒明講，我隨便掰的
-const second_boss_defeated = 1670976000000; //小說沒明講，我隨便掰的
-const third_boss_defeated = 1671595920000;
-const forth_boss_defeated = 1672119120000;
-const fifth_boss_defeated = 1672486200000;
-const sixth_boss_defeated = 1672840800000;
-
-//以下基本上都是估算的，剩至還有些東西被我省略了
-//結果我太懶懶得用這些資料
-const twentey_fifth_boss_defeated = 1680220800000;
-const twenty_eighth_boss_defeated = 1683590400000;
-const thirtieth_boss_defeated = 1687392000000;
-const thirty_eighth_boss_defeated = 1696723200000;
-const fourtieth_boss_defeated = 1697623200000;
-const fiftieth_boss_defeated = 1705190400000;
-const fifty_fifth_boss_defeated = 1708646400000;
-const starburst_stream_16_10 = 1729242000000;
-
-const twenty_first_boss_defeated = 1684632208696; //用線性函數算出來的
-const twenty_second_boss_defeated = 1684891408696; //三天後
-
 setup();
 updateTimer();
 var clock = setInterval(updateTimer , 500);
@@ -47,7 +14,7 @@ function setup() {
         document.getElementById('texts').innerHTML='<div id="current-player" class="title warning"></div><div id="current-floor" class="title warning"></div>'
     }else {
         document.getElementById('bg').className += " end";
-        document.getElementById('texts').innerHTML='<div id="service-end" class="title">Sword Art Online已於</div><div id="service-end" class="title">2024年11月7日14時55分16秒遊戲破關</div><div id="service-end" class="title">6147名玩家已完成登出</div>'
+        document.getElementById('texts').innerHTML='<div id="service-end" class="title">Sword Art Online已於</div><div id="service-end" class="title">2024年11月7日14時55分遊戲破關</div><div id="service-end" class="title">6147名玩家已完成登出</div>'
     }
 }
 
@@ -125,39 +92,10 @@ function updateTimer() {
         document.getElementById('current-floor').innerText = '已攻略至' + floor2() + '樓';
         document.getElementById('current-player').innerText = '剩餘玩家 ' + player_count2() + '人';
     }else if (now >= seventyfive_floor_fight && now < seventyfive_floor_fight_end) {
+        document.getElementById('current-floor').innerText = '已攻略至' + floor2() + '樓';
         document.getElementById('current-player').innerText = '剩餘玩家 ' + player_count3() + '人';
     }else if (now >= seventyfive_floor_fight_end && now < sao_clear) {
         document.getElementById('current-floor').innerText = '已攻略至' + floor2() + '樓';
         document.getElementById('current-player').innerText = '剩餘玩家 ' + 6147 + '人';
     }
-}
-
-function paddingLeft(str, lenght){
-	if(str.length >= lenght) {
-	    return str;
-    }else {
-	    return paddingLeft("0" + str, lenght);
-    }
-}
-
-function player_count1() {
-    return Math.round(0.0391*Math.pow((tztt_d_f - Date.now()), 0.5)+8000);
-    //return Math.round(8000+1785*((tztt_d_f - Date.now())/2084400000));
-}
-
-function player_count2() {
-    return Math.round(0.007438*Math.pow((seventyfive_floor_fight - Date.now()), 0.5)+6161);
-    //return Math.round(6161+1839*((seventyfive_floor_fight - Date.now())/61131600000));
-}
-
-function player_count3() {
-    return Math.round(6147+14*((seventyfive_floor_fight_end - Date.now())/3600000));
-}
-
-function floor1() {
-    return Math.round(22-15*((twenty_first_boss_defeated - Date.now())/11791408696));
-}
-
-function floor2() {
-    return Math.round(76-53*((seventyfive_floor_fight_end - Date.now())/46064191304));
 }
