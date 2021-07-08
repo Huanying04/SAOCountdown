@@ -141,11 +141,13 @@ function paddingLeft(str, lenght){
 }
 
 function player_count1() {
-    return Math.round(8000+1785*((tztt_d_f - Date.now())/2084400000));
+    return Math.round(0.0391*Math.pow((tztt_d_f - Date.now()), 0.5)+8000);
+    //return Math.round(8000+1785*((tztt_d_f - Date.now())/2084400000));
 }
 
 function player_count2() {
-    return Math.round(6161+1839*((seventyfive_floor_fight - Date.now())/61131600000));
+    return Math.round(0.007438*Math.pow((seventyfive_floor_fight - Date.now()), 0.5)+6161);
+    //return Math.round(6161+1839*((seventyfive_floor_fight - Date.now())/61131600000));
 }
 
 function player_count3() {
