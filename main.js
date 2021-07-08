@@ -75,6 +75,7 @@ function updateTimer() {
                 + paddingLeft(String(sec), 2) + '秒';
         document.getElementById('time').innerText = str;
     }else if (now < server_open_time){
+        var left = server_open_time - now;
         const day = Math.floor(left / 86400000);
         left = left - 86400000 * day;
         const hour = Math.floor(left / 3600000);
@@ -82,9 +83,7 @@ function updateTimer() {
         const min = Math.floor(left / 60000);
         left = left - 60000 * min;
         const sec = Math.floor(left / 1000);
-        var str = (year>0?year + '年':'')
-                + (month>0?month + '月':'')
-                + (day>0?day + '日':'') 
+        var str = (day>0?day + '日':'') 
                 + hour + '時' 
                 + paddingLeft(String(min), 2) + '分' 
                 + paddingLeft(String(sec), 2) + '秒';
