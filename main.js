@@ -75,11 +75,6 @@ function updateTimer() {
                 + paddingLeft(String(sec), 2) + '秒';
         document.getElementById('time').innerText = str;
     }else if (now < server_open_time){
-        var left = server_open_time - now;
-        const year = Math.floor(left / 31556926000);
-        left = left - 31556926000 * year;
-        const month = Math.floor(left / 2629800000);
-        left = left - 2629800000 * month;
         const day = Math.floor(left / 86400000);
         left = left - 86400000 * day;
         const hour = Math.floor(left / 3600000);
