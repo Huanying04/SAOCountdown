@@ -1,3 +1,4 @@
+const closed_beta = 1659279600000;
 const sale_begin = 1667142000000;
 const server_open_time = 1667707200000;
 const server_trap_time = 1667723400000;

@@ -5,6 +5,8 @@ var clock = setInterval(updateTimer , 500);
 function setup() {
     const now = Date.now();
     if (now < sale_begin){
+        document.getElementById('texts').innerHTML='<div class="title">距離刀劍神域封測剩餘</div><div id="time" class="title"></div>';
+    }else if (now < sale_begin){
         document.getElementById('texts').innerHTML='<div class="title">距離刀劍神域發售剩餘</div><div id="time" class="title"></div>';
     }else if (now < server_open_time){
         document.getElementById('texts').innerHTML='<div class="title">距離刀劍神域開服剩餘</div><div id="time" class="title"></div>';
@@ -22,7 +24,7 @@ function updateTimer() {
     const now = Date.now();
 
     if (now < sale_begin){
-        var left = sale_begin - now;
+        var left = closed_beta - now;
         const year = Math.floor(left / 31556926000);
         left = left - 31556926000 * year;
         const month = Math.floor(left / 2629800000);
@@ -37,6 +39,20 @@ function updateTimer() {
         var str = (year>0?year + '年':'')
                 + (month>0?month + '月':'')
                 + (day>0?day + '日':'') 
+                + hour + '時' 
+                + paddingLeft(String(min), 2) + '分' 
+                + paddingLeft(String(sec), 2) + '秒';
+        document.getElementById('time').innerText = str;
+    }else if (now < sale_begin){
+        var left = sale_begin - now;
+        const day = Math.floor(left / 86400000);
+        left = left - 86400000 * day;
+        const hour = Math.floor(left / 3600000);
+        left = left - 3600000 * hour;
+        const min = Math.floor(left / 60000);
+        left = left - 60000 * min;
+        const sec = Math.floor(left / 1000);
+        var str = (day>0?day + '日':'') 
                 + hour + '時' 
                 + paddingLeft(String(min), 2) + '分' 
                 + paddingLeft(String(sec), 2) + '秒';
