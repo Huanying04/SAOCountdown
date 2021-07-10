@@ -3,7 +3,6 @@
 
 網頁：
 * https://huanying04.github.io/SAOCountdown/
-* http://nekomura.cf/sao/
 
 svg圖片：
 * https://sao-c8763.000webhostapp.com/canvas/
